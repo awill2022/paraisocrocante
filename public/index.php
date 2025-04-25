@@ -8,7 +8,10 @@
 </head>
 <body>
     <header>
-        <h1>Paraíso Crocante</h1>
+        <div class="logo-container">
+            <img src="../public/img/logo.png" alt="Logo Paraíso Crocante" class="logo">
+            <h1>Paraíso Crocante</h1>
+        </div>
     </header>
     <nav>
         <ul>
@@ -16,6 +19,7 @@
             <li><a href="cierre-diario.php">Cierre Diario</a></li>
             <li><a href="registrar-gasto.php">Registrar Gasto</a></li>
             <li><a href="ver-reportes.php">Ver Reportes</a></li>
+            <li><a href="reportes-graficos.php">Reportes Gráficos</a></li>
         </ul>
     </nav>
     <div class="container">

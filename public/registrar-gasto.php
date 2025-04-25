@@ -19,21 +19,26 @@
             <li><a href="ver-reportes.php">Ver Reportes</a></li>
         </ul>
     </nav>
+    <?php
+include '../config/db.php';
+
+$sql = "SELECT nombre FROM categoria ORDER BY nombre ASC";
+$resultado = $conn->query($sql);
+?>
     <div class="container">
         <div class="form-section">
             <h2>Nuevo Gasto</h2>
             <form method="POST" action="">
                 <input type="text" name="descripcion" placeholder="Descripción" required>
                 <input type="number" name="monto" placeholder="Monto ($)" step="0.01" min="0" required>
-                <select name="categoria" required>
-                    <option value="">Selecciona una categoría</option>
-                    <option value="Insumos">Fresas</option>
-                    <option value="Insumos">Desechables</option>
-                    <option value="Servicios">Servicios</option>
-                    <option value="Transporte">Transporte</option>
-                    <option value="Personal">Personal</option>
-                    <option value="Otros">Otros</option>
-                </select>
+                <select name="categoria" id="categoria">
+  <option value="">Selecciona una opción</option>
+  <?php
+  while ($fila = $resultado->fetch_assoc()) {
+    echo "<option value='" . htmlspecialchars($fila['nombre']) . "'>" . htmlspecialchars($fila['nombre']) . "</option>";
+  }
+  ?>
+</select>
                 <button type="submit">Registrar</button>
             </form>
         </div>
